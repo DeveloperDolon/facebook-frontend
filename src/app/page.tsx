@@ -1,6 +1,7 @@
 // import Image from 'next/image'
+"use client"
 
-const Home: React.FC = () => {
+const Home = () => {
 
   const handleClick = () => {
     alert("Hello world")  
