@@ -1,4 +1,32 @@
-const page = () => {
+"use client";
+
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import { useState } from "react";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
+const page: React.FC = () => {
+  const [open, setOpen] = useState<boolean>(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handleCreateAccount = () => {
+    alert("hello world!");
+  };
+
   return (
     <div className="bg-[#f0f2f5]">
       <div className="grid md:grid-cols-2 grid-cols-1 items-center md:mt-0 mt-20 min-h-screen max-w-6xl mx-auto">
@@ -32,7 +60,9 @@ const page = () => {
               </div>
 
               <div className="mt-6">
-                <button className="w-full px-6 py-2.5 md:text-xl text-lg font-bold tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
+                <button
+                  className="w-full px-6 py-2.5 md:text-xl text-lg font-bold tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50 "
+                >
                   Log in
                 </button>
               </div>
@@ -46,22 +76,46 @@ const page = () => {
                 Forgotten password?
               </a>
             </div>
-            <div className="border-b-2 mt-5">
-
-            </div>
+            <div className="border-b-2 mt-5"></div>
             <div className="mt-6 text-center">
-              <button className="px-6 py-2.5 md:text-lg mx-auto text-base font-semibold tracking-wide text-white transition-colors duration-300 transform bg-[#42b72a] rounded-lg focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
-                Create new account
-              </button>
+
+              <div>
+                <button
+                  className="px-6 py-2.5 md:text-lg mx-auto text-base font-semibold tracking-wide text-white transition-colors duration-300 transform bg-[#42b72a] rounded-lg focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+                  onClick={handleOpen}
+                >
+                  Create new account
+                </button>
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Box sx={style}>
+                    <Typography
+                      id="modal-modal-title"
+                      variant="h6"
+                      component="h2"
+                    >
+                      Text in a modal
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                      Duis mollis, est non commodo luctus, nisi erat porttitor
+                      ligula.
+                    </Typography>
+                  </Box>
+                </Modal>
+              </div>
             </div>
           </div>
 
           <div>
             <p className="md:text-sm font-light text-xs text-center pt-7">
-              <span className="font-semibold">Create a Page</span> for a celebrity, brand or business.
+              <span className="font-semibold">Create a Page</span> for a
+              celebrity, brand or business.
             </p>
           </div>
-
         </div>
       </div>
     </div>
