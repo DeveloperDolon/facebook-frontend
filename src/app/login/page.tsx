@@ -11,11 +11,10 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  borderRadius: "10px"
 };
 
 const page: React.FC = () => {
@@ -87,6 +86,7 @@ const page: React.FC = () => {
                   Create new account
                 </button>
                 <Modal
+                  className="rounded-lg"
                   open={open}
                   onClose={handleClose}
                   aria-labelledby="modal-modal-title"
@@ -95,14 +95,15 @@ const page: React.FC = () => {
                   <Box sx={style}>
                     <Typography
                       id="modal-modal-title"
-                      variant="h6"
+                      sx={{fontWeight: 600}}
+                      variant="h4"
                       component="h2"
                     >
-                      Text in a modal
+                      Sign Up
                     </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                      Duis mollis, est non commodo luctus, nisi erat porttitor
-                      ligula.
+                    <Typography id="modal-mod
+                    al-description" sx={{ mt: 0 }}>
+                      It&apos;s quick and easy.
                     </Typography>
                   </Box>
                 </Modal>
